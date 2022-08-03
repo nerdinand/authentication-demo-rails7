@@ -4,6 +4,14 @@ Rails.application.routes.draw do
   get 'home', to: 'home#index'
 
   resources :users, only: %i[new create]
+  namespace :user do
+    resources :email_confirmations, only: %i[new create]
+    namespace :email_confirmations do
+      post :resend
+    end
+    resources :password_resets, only: %i[new create]
+  end
+
   resources :user_sessions, only: %i[new create destroy]
 
   get 'log_in', to: redirect('/user_sessions/new')

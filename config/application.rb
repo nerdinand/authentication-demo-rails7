@@ -18,5 +18,7 @@ module AuthenticationDemoRails7
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    config.action_mailer.default_url_options = { host: '127.0.0.1:3000' }
   end
 end

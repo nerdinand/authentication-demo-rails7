@@ -9,7 +9,8 @@ class UserSessionsController < ApplicationController
       session[:current_user_id] = user.id
       redirect_to :home
     else
-      render :new
+      @error = true
+      render :new, status: :unprocessable_entity
     end
   end
 

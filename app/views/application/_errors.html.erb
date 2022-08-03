@@ -1,0 +1,9 @@
+<% if model.errors.any? %>
+  <p>There were errors saving the <%= model.model_name.human %>:</p>
+
+  <ul>
+    <% model.errors.each do |error| %>
+      <li><%= error.full_message %></li>
+    <% end %>
+  </ul>
+<% end %>

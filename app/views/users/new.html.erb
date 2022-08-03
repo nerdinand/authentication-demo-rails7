@@ -1,8 +1,14 @@
 <h1>Sign up</h1>
 
-<%# TODO: Show error messages %>
+<%= render 'errors', model: @user %>
 
 <%= form_for @user do |f| %>
+  <%= f.label :email, 'E-Mail' %>
+  <%= f.text_field :email %>
+
+  <%= f.label :email_confirmation, 'E-Mail Confirmation' %>
+  <%= f.text_field :email_confirmation %>
+
   <%= f.label :username, 'Username' %>
   <%= f.text_field :username %>
 
