@@ -1,0 +1,13 @@
+<h1>Reset your password</h1>
+
+<%= form_for(@password_reset) do |f| %>
+  <%= f.hidden_field :password_reset_token %>
+
+  <%= f.label :password, 'Password' %>
+  <%= f.password_field :password %>
+
+  <%= f.label :password_confirmation, 'Password Confirmation' %>
+  <%= f.password_field :password_confirmation %>
+
+  <%= f.submit 'Confirm' %>
+<% end %>

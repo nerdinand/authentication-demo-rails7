@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     namespace :email_confirmations do
       post :resend
     end
+    resources :password_reset_requests, only: %i[new create]
     resources :password_resets, only: %i[new create]
   end
 

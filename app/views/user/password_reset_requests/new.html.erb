@@ -1,0 +1,7 @@
+<h1>Reset your password</h1>
+
+<%= form_for(@password_reset_request) do |f| %>
+  <%= f.label :email_or_username, 'E-Mail or username' %>
+  <%= f.text_field :email_or_username %>
+  <%= f.submit 'Confirm' %>
+<% end %>

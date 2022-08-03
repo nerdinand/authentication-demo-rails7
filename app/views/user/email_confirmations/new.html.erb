@@ -1,6 +1,6 @@
 <h1>Confirm your email</h1>
 
 <%= form_for(@email_confirmation) do |f| %>
-  <%= f.hidden_field :email_confirmation_token%>
+  <%= f.hidden_field :email_confirmation_token %>
   <%= f.submit 'Confirm' %>
 <% end %>

@@ -1,8 +1,12 @@
 <h1>Log in</h1>
 
 <% if @error %>
-  <p>Couldn't log you in. Wrong username/password combination or unconfirmed email address.</p>
+  <p>Couldn't log you in: Wrong username/password combination.</p>
 <% end %>
+
+<p>
+  Did you forget your password? <%= link_to 'Reset password', new_user_password_reset_request_path %>
+</p>
 
 <%= form_for :user_session, url: user_sessions_path do |f| %>
   <%= f.label :username, "Username" %>
