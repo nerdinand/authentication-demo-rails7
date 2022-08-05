@@ -10,7 +10,9 @@ class User::PasswordResetRequestsControllerTest < ActionDispatch::IntegrationTes
 
   test 'should successfully request a password reset with a username' do
     assert_emails 1 do
-      post user_password_reset_requests_url, params: { user_password_reset_request: { email_or_username: 'user' } }
+      post user_password_reset_requests_url, params: {
+        user_password_reset_request: { email_or_username: 'user' }
+      }
     end
     assert users(:user).password_reset_token.present?
     assert_redirected_to :home
@@ -18,7 +20,9 @@ class User::PasswordResetRequestsControllerTest < ActionDispatch::IntegrationTes
 
   test 'should successfully request a password reset with an email' do
     assert_emails 1 do
-      post user_password_reset_requests_url, params: { user_password_reset_request: { email_or_username: 'user@example.com' } }
+      post user_password_reset_requests_url, params: {
+        user_password_reset_request: { email_or_username: 'user@example.com' }
+      }
     end
     assert users(:user).password_reset_token.present?
     assert_redirected_to :home
@@ -26,7 +30,9 @@ class User::PasswordResetRequestsControllerTest < ActionDispatch::IntegrationTes
 
   test 'should fail to request a password reset' do
     assert_emails 0 do
-      post user_password_reset_requests_url, params: { user_password_reset_request: { email_or_username: 'non_existant_user' } }
+      post user_password_reset_requests_url, params: {
+        user_password_reset_request: { email_or_username: 'non_existant_user' }
+      }
     end
     assert users(:user).password_reset_token.blank?
     assert_redirected_to :home

@@ -4,19 +4,25 @@ require 'test_helper'
 
 class User::EmailConfirmationsControllerTest < ActionDispatch::IntegrationTest
   test 'should get new' do
-    get new_user_email_confirmation_url, params: { user_email_confirmation: { email_confirmation_token: 'iYQ6tXWC53k4bfQRo6u9' } }
+    get new_user_email_confirmation_url, params: {
+      user_email_confirmation: { email_confirmation_token: 'iYQ6tXWC53k4bfQRo6u9' }
+    }
     assert_response :success
   end
 
   test 'should successfully confirm email address with the correct token' do
-    post user_email_confirmations_url, params: { user_email_confirmation: { email_confirmation_token: 'iYQ6tXWC53k4bfQRo6u9' } }
+    post user_email_confirmations_url, params: {
+      user_email_confirmation: { email_confirmation_token: 'iYQ6tXWC53k4bfQRo6u9' }
+    }
 
     assert users(:user_with_unconfirmed_email).email_confirmation_token.blank?
     assert_redirected_to :home
   end
 
   test 'should fail to confirm email address with the wrong token' do
-    post user_email_confirmations_url, params: { user_email_confirmation: { email_confirmation_token: 'wrong_token' } }
+    post user_email_confirmations_url, params: {
+      user_email_confirmation: { email_confirmation_token: 'wrong_token' }
+    }
 
     assert users(:user_with_unconfirmed_email).email_confirmation_token.present?
     assert_redirected_to :home
