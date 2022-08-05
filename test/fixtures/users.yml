@@ -1,0 +1,10 @@
+user:
+  username: user
+  email: user@example.com
+  password_digest: '$2a$12$iPhbtfcPCNC83zIX.b2NCOIzbqxVn1RVZ0veCgkTvQW9I15sbMoGq' # 'user_password'
+
+user_with_unconfirmed_email:
+  username: user_with_unconfirmed_email
+  email: user_with_unconfirmed_email@example.com
+  password_digest: '$2a$12$vRjhDepgOznqFBurr2Jp8.N1Zcm/rhpOVM02W2KAtDFSNEQmOKqli' # 'mypassword'
+  email_confirmation_token: 'iYQ6tXWC53k4bfQRo6u9'
