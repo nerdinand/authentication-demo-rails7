@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
-module User
-  class EmailConfirmation
-    include ActiveModel::Model
+class User::EmailConfirmation
+  include ActiveModel::Model
 
-    attr_accessor :email_confirmation_token
-  end
+  attr_accessor :email_confirmation_token
 end
