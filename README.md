@@ -1,4 +1,4 @@
-# README
+# authentication-demo-rails7
 
 An application that demoes how to implement various authentication mechanisms in Ruby.
 
