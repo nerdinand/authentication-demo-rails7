@@ -8,3 +8,9 @@ user_with_unconfirmed_email:
   email: user_with_unconfirmed_email@example.com
   password_digest: '$2a$12$vRjhDepgOznqFBurr2Jp8.N1Zcm/rhpOVM02W2KAtDFSNEQmOKqli' # 'mypassword'
   email_confirmation_token: 'iYQ6tXWC53k4bfQRo6u9'
+
+user_with_open_password_reset_request:
+  username: user_with_open_password_reset_request
+  email: user_with_open_password_reset_request@example.com
+  password_digest: '$2a$12$vRjhDepgOznqFBurr2Jp8.N1Zcm/rhpOVM02W2KAtDFSNEQmOKqli' # 'mypassword'
+  password_reset_token: 'Tm8Gv9VP4XsHnIJyosk7'
