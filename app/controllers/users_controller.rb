@@ -10,7 +10,8 @@ class UsersController < ApplicationController
 
     if @user.save && @user.start_email_confirmation
       redirect_to :home,
-                  notice: 'Successfully signed up. Please click the confirmation link in the email you will receive momentarily.'
+                  notice: 'Successfully signed up. Please click the confirmation link \
+in the email you will receive momentarily.'
     else
       render :new, status: :unprocessable_entity
     end

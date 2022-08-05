@@ -11,15 +11,15 @@ class User < ApplicationRecord
   attr_accessor :email_confirmation
 
   def start_email_confirmation
-    if update(email_confirmation_token: SecureRandom.alphanumeric(20))
-      UserMailer.with(user: self).email_confirmation_email.deliver_later
-    end
+    return unless update(email_confirmation_token: SecureRandom.alphanumeric(20))
+
+    UserMailer.with(user: self).email_confirmation_email.deliver_later
   end
 
   def start_password_reset
-    if update(password_reset_token: SecureRandom.alphanumeric(20))
-      UserMailer.with(user: self).password_reset_email.deliver_later
-    end
+    return unless update(password_reset_token: SecureRandom.alphanumeric(20))
+
+    UserMailer.with(user: self).password_reset_email.deliver_later
   end
 
   def email_confirmed?

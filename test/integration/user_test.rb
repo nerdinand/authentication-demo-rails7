@@ -5,7 +5,7 @@ require 'test_helper'
 class UserTest < ActionDispatch::IntegrationTest
   fixtures :users
 
-  test 'can sign up' do
+  test 'can sign up' do # rubocop:disable Metrics/BlockLength
     get '/'
     assert_response :success
     assert_select 'a[href="/sign_up"]', 'sign up'
@@ -32,7 +32,8 @@ class UserTest < ActionDispatch::IntegrationTest
     follow_redirect!
     assert_response :success
     assert_select 'p.notice',
-                  'Successfully signed up. Please click the confirmation link in the email you will receive momentarily.'
+                  'Successfully signed up. Please click the confirmation link \
+in the email you will receive momentarily.'
   end
 
   test 'can confirm email' do
@@ -78,7 +79,7 @@ class UserTest < ActionDispatch::IntegrationTest
     assert_select 'p', 'You are not logged in.'
   end
 
-  test 'can reset password' do
+  test 'can reset password' do # rubocop:disable Metrics/BlockLength
     get '/log_in'
     assert_response :redirect
     follow_redirect!
