@@ -61,8 +61,8 @@ class UserTest < ActionDispatch::IntegrationTest
     assert_response :success
 
     assert_select 'h1', 'Log in'
-    assert_select 'form[action="/user_sessions"]'
-    post '/user_sessions', params: { user_session: { username: 'user', password: 'user_password' } }
+    assert_select 'form[action="/user_session"]'
+    post '/user_session', params: { user_session: { username: 'user', password: 'user_password' } }
     assert_response :redirect
     follow_redirect!
     assert_response :success

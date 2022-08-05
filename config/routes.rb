@@ -15,9 +15,9 @@ Rails.application.routes.draw do
     resources :password_resets, only: %i[new create]
   end
 
-  resources :user_sessions, only: %i[new create destroy]
+  resource :user_session, only: %i[new create destroy]
 
-  get 'log_in', to: redirect('/user_sessions/new')
+  get 'log_in', to: redirect('/user_session/new')
   get 'sign_up', to: redirect('/users/new')
   delete 'log_out', to: 'user_sessions#destroy'
 end

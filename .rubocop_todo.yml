@@ -27,27 +27,6 @@ Metrics/MethodLength:
 Metrics/PerceivedComplexity:
   Max: 9
 
-# Offense count: 14
-# Configuration parameters: AllowedConstants.
-Style/Documentation:
-  Exclude:
-    - 'spec/**/*'
-    - 'test/**/*'
-    - 'app/controllers/home_controller.rb'
-    - 'app/controllers/user/email_confirmations_controller.rb'
-    - 'app/controllers/user/password_reset_requests_controller.rb'
-    - 'app/controllers/user/password_resets_controller.rb'
-    - 'app/controllers/user_sessions_controller.rb'
-    - 'app/controllers/users_controller.rb'
-    - 'app/helpers/application_helper.rb'
-    - 'app/mailers/user_mailer.rb'
-    - 'app/models/user.rb'
-    - 'config/application.rb'
-    - 'db/migrate/20220710122933_create_users.rb'
-    - 'db/migrate/20220728150753_add_email_to_users.rb'
-    - 'db/migrate/20220801163519_add_email_confirmation_token_to_users.rb'
-    - 'db/migrate/20220803162302_add_password_reset_token_to_users.rb'
-
 # Offense count: 2
 # Configuration parameters: MinBodyLength, AllowConsecutiveConditionals.
 Style/GuardClause:
