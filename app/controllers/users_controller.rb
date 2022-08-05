@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UsersController < ApplicationController
   def new
     @user = User.new
@@ -7,7 +9,8 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save && @user.start_email_confirmation
-      redirect_to :home, notice: 'Successfully signed up. Please click the confirmation link in the email you will receive momentarily.'
+      redirect_to :home,
+                  notice: 'Successfully signed up. Please click the confirmation link in the email you will receive momentarily.'
     else
       render :new, status: :unprocessable_entity
     end

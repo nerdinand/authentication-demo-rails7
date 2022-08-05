@@ -1,5 +1,9 @@
-class User::PasswordResetRequest
-  include ActiveModel::Model
+# frozen_string_literal: true
 
-  attr_accessor :email_or_username
+module User
+  class PasswordResetRequest
+    include ActiveModel::Model
+
+    attr_accessor :email_or_username
+  end
 end

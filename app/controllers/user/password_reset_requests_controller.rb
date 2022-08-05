@@ -1,20 +1,24 @@
-class User::PasswordResetRequestsController < ApplicationController
-  def new
-    @password_reset_request = User::PasswordResetRequest.new
-  end
+# frozen_string_literal: true
 
-  def create
-    email_or_username = password_reset_request_params[:email_or_username]
-    user = User.where(username: email_or_username).or(User.where(email: email_or_username)).first
+module User
+  class PasswordResetRequestsController < ApplicationController
+    def new
+      @password_reset_request = User::PasswordResetRequest.new
+    end
 
-    user&.start_password_reset
+    def create
+      email_or_username = password_reset_request_params[:email_or_username]
+      user = User.where(username: email_or_username).or(User.where(email: email_or_username)).first
 
-    redirect_to :home, notice: 'Please click the password reset link in the email you will receive momentarily.'
-  end
+      user&.start_password_reset
 
-  private
+      redirect_to :home, notice: 'Please click the password reset link in the email you will receive momentarily.'
+    end
 
-  def password_reset_request_params
-    params.require(:user_password_reset_request).permit(:email_or_username)
+    private
+
+    def password_reset_request_params
+      params.require(:user_password_reset_request).permit(:email_or_username)
+    end
   end
 end

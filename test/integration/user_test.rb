@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class UserTest < ActionDispatch::IntegrationTest
@@ -29,7 +31,8 @@ class UserTest < ActionDispatch::IntegrationTest
     assert_response :redirect
     follow_redirect!
     assert_response :success
-    assert_select 'p.notice', 'Successfully signed up. Please click the confirmation link in the email you will receive momentarily.'
+    assert_select 'p.notice',
+                  'Successfully signed up. Please click the confirmation link in the email you will receive momentarily.'
   end
 
   test 'can confirm email' do
@@ -39,7 +42,7 @@ class UserTest < ActionDispatch::IntegrationTest
     assert_select 'form[action="/user/email_confirmations"]'
 
     post '/user/email_confirmations', params: {
-      user_email_confirmation: {email_confirmation_token: 'iYQ6tXWC53k4bfQRo6u9'}
+      user_email_confirmation: { email_confirmation_token: 'iYQ6tXWC53k4bfQRo6u9' }
     }
     assert_response :redirect
     follow_redirect!
@@ -59,7 +62,7 @@ class UserTest < ActionDispatch::IntegrationTest
 
     assert_select 'h1', 'Log in'
     assert_select 'form[action="/user_sessions"]'
-    post '/user_sessions', params: {user_session: {username: 'user', password: 'user_password'}}
+    post '/user_sessions', params: { user_session: { username: 'user', password: 'user_password' } }
     assert_response :redirect
     follow_redirect!
     assert_response :success
@@ -88,7 +91,8 @@ class UserTest < ActionDispatch::IntegrationTest
     assert_select 'form[action="/user/password_reset_requests"]'
 
     assert_emails 1 do
-      post '/user/password_reset_requests', params: {user_password_reset_request: {email_or_username: 'user@example.com'}}
+      post '/user/password_reset_requests',
+           params: { user_password_reset_request: { email_or_username: 'user@example.com' } }
     end
     assert_response :redirect
     follow_redirect!
@@ -96,13 +100,13 @@ class UserTest < ActionDispatch::IntegrationTest
     assert_select 'p.notice', 'Please click the password reset link in the email you will receive momentarily.'
 
     password_reset_token = users(:user).password_reset_token
-    get '/user/password_resets/new', params: {user_password_reset: {password_reset_token: password_reset_token}}
+    get '/user/password_resets/new', params: { user_password_reset: { password_reset_token: } }
     assert_response :success
     assert_select 'h1', 'Reset your password'
     assert_select 'form[action="/user/password_resets"]'
 
     post '/user/password_resets', params: {
-      user_password_reset: {password_reset_token: password_reset_token},
+      user_password_reset: { password_reset_token: },
       password: 'new_password',
       password_confirmation: 'new_password'
     }

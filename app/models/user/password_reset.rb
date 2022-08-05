@@ -1,7 +1,9 @@
-class User::PasswordReset
-  include ActiveModel::Model
+# frozen_string_literal: true
 
-  attr_accessor :password_reset_token
-  attr_accessor :password
-  attr_accessor :password_confirmation
+module User
+  class PasswordReset
+    include ActiveModel::Model
+
+    attr_accessor :password_reset_token, :password, :password_confirmation
+  end
 end
