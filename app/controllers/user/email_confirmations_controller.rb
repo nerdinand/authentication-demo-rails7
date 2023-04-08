@@ -6,7 +6,7 @@ class User::EmailConfirmationsController < ApplicationController
   end
 
   def create
-    user = User.find_by(email_confirmation_params)
+    user = User.find_by(email_confirmation_token: params.dig(:user_email_confirmation, :email_confirmation_token))
 
     if user&.update(email_confirmation_token: nil)
       redirect_to :home, notice: 'Successfully confirmed your email address.'
